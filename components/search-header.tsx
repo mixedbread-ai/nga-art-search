@@ -2,7 +2,6 @@
 
 import { Loader2, Send } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import type { FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -129,7 +128,7 @@ export function SearchHeader({
               variant="outline"
               size="sm"
               onClick={() => onSuggestionClick(suggestion)}
-              className="font-light !bg-background/70 text-xs sm:text-sm backdrop-blur-sm"
+              className="font-light bg-background/70 text-xs sm:text-sm backdrop-blur-sm"
             >
               {suggestion}
             </Button>

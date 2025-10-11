@@ -108,9 +108,9 @@ export function GalleryItem({
         <div className="flex flex-col items-start gap-0 px-4 py-3 text-xs">
           <p className="text-sm font-medium truncate w-full">{displayTitle}</p>
           {image.metadata.artist && (
-            <span className="truncate w-full">{image.metadata.artist}</span>
+            <span className="truncate w-full mb-0.5">{image.metadata.artist}</span>
           )}
-          {image.metadata.date && <span>{image.metadata.date}</span>}
+          {image.metadata.date && <span className="text-muted-foreground">{image.metadata.date}</span>}
         </div>
       </motion.div>
     </motion.div>

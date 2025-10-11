@@ -42,11 +42,15 @@ export function generateRandomPositions(count: number, seed = 0): Position[] {
   const maxSize = 280;
   const marginLeft = 15;
   const marginRight = 15;
-  const marginTop = 20;
-  const marginBottom = 20;
+  
 
   const vw = typeof window !== "undefined" ? window.innerWidth : 1920;
   const vh = typeof window !== "undefined" ? window.innerHeight : 1080;
+
+  // Account for header height
+  const pagePaddingTop = vw >= 640 ? 56 : 48;
+  const marginTop = pagePaddingTop + 10;
+  const marginBottom = 10;
 
   const availableWidth = Math.max(0, vw - marginLeft - marginRight);
   const availableHeight = Math.max(0, vh - marginTop - marginBottom);

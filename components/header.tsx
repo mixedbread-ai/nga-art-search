@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Header() {
@@ -6,11 +7,12 @@ export function Header() {
       <div className="container mx-auto flex h-12 sm:h-14 items-center justify-between px-3 sm:px-4">
         {/* Logo */}
         <a href="/" className="flex-shrink-0">
-          {/* biome-ignore lint: Using img for simplicity */}
-          <img
+          <Image
             src="/logo_mb.svg"
             alt="Mixedbread"
-            className="h-3.5 sm:h-5 lg:h-6 w-auto"
+            className="size-6 sm:size-7 lg:size-8"
+            width={32}
+            height={32}
           />
         </a>
 
