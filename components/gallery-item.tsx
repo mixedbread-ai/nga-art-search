@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -129,28 +128,29 @@ export function GalleryItem({
         className="p-0 border-0 w-auto h-auto max-w-[95vw] sm:max-w-[90vw] max-h-[90vh] sm:max-h-[90vh] overflow-auto bg-transparent place-items-center"
       >
         <DialogTitle className="sr-only">{dialogTitle}</DialogTitle>
-        <div className="relative">
-          {/* biome-ignore lint/performance/noImgElement: Dialog image needs flexible sizing without layout shift */}
+        {artworkUrl ? (
+          <Link
+            href={artworkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
+            {/* biome-ignore lint/performance/noImgElement: Dialog image needs flexible sizing without layout shift */}
+            <img
+              src={imageUrl}
+              alt={dialogTitle}
+              loading="lazy"
+              className="rounded-lg max-h-[90vh] max-w-[90vw] w-auto h-auto object-contain"
+            />
+          </Link>
+        ) : (
           <img
             src={imageUrl}
             alt={dialogTitle}
             loading="lazy"
             className="rounded-lg max-h-[90vh] max-w-[90vw] w-auto h-auto object-contain"
           />
-          {artworkUrl && (
-            <div className="absolute bottom-4 right-4">
-              <Button asChild variant="secondary" size="sm">
-                <Link
-                  href={artworkUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Details
-                </Link>
-              </Button>
-            </div>
-          )}
-        </div>
+        )}
       </DialogContent>
     </Dialog>
   );
